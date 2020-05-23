@@ -17,8 +17,10 @@ class Track extends React.Component {
                     <h3> track name will go here </h3>
                     <p> track artist will go here | track album will go here </p>
                 </div>
-                {this.renderAction}
+                {this.renderAction()}
             </div>
         )
     }
 }
+
+export default Track;
