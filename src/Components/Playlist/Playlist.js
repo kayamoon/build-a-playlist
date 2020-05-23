@@ -3,7 +3,7 @@ import './Playlist.css';
 import '../Tracklist/Tracklist';
 import Tracklist from '../Tracklist/Tracklist';
 
-class Playlist extends React.Component {
+class Playlist extends React.Component {    
     render() {
         return(
             <div className="Playlist">
