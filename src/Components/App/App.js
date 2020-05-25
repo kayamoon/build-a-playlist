@@ -92,7 +92,6 @@ class App extends React.Component {
     if(term !== ''){
         Spotify.search(term).then(tracks => {
         this.setState({ searchResults: tracks });
-        console.log(this.state.searchResults);
     })
     }
   }
