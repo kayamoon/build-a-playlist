@@ -51,6 +51,7 @@ class App extends React.Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
+    this.search = this.search.bind(this);
   }
 
   addTrack(track){
@@ -82,8 +83,14 @@ class App extends React.Component {
     tracks.map(track => {
       trackURIs.push(`spotify:track:${track.id}`);
     })
-    console.log(trackURIs);
-    console.log(this.state.playlistName);
+    //console.log(trackURIs);
+    //console.log(this.state.playlistName);
+  }
+
+  search(term){
+    if(term !== ''){
+        console.log(term);
+    }
   }
 
   render(){
@@ -92,9 +99,9 @@ class App extends React.Component {
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
             <SearchBar/>
-          <div className="App-playlist">
+          <div className="App-playlist" onSearch={this.search()}>
             <SearchResults searchResults={this.state.searchResults} 
-              onAdd={this.addTrack}/>
+              onAdd={this.addTrack} />
             <Playlist playlistName={this.state.playlistName} 
               playlistTracks={this.state.playlistTracks}
               onRemove={this.removeTrack} 
