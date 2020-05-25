@@ -1,0 +1,6 @@
+const config = {
+    SPOTIFY_API_KEY : '', //set variable equal to your Spotify API key
+    REDIRECT_URI : 'http://localhost:3000/'
+  }
+
+export default config;
