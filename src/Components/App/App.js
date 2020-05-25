@@ -52,7 +52,7 @@ class App extends React.Component {
     this.removeTrack = this.removeTrack.bind(this);
     this.updatePlaylistName = this.updatePlaylistName.bind(this);
     this.savePlaylist = this.savePlaylist.bind(this);
-    this.search = this.search.bind(this);
+    this.searchSpotify = this.searchSpotify.bind(this);
   }
 
   addTrack(track){
@@ -91,7 +91,7 @@ class App extends React.Component {
   searchSpotify(term){
     if(term !== ''){
         Spotify.search(term).then(tracks => {
-        this.setState({searchResults: tracks});
+        this.setState({ searchResults: tracks });
         console.log(this.state.searchResults);
     })
     }
@@ -102,8 +102,8 @@ class App extends React.Component {
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
         <div className="App">
-            <SearchBar/>
-          <div className="App-playlist" onSearch={this.search()}>
+            <SearchBar onSearch={this.searchSpotify}/>
+          <div className="App-playlist">
             <SearchResults searchResults={this.state.searchResults} 
               onAdd={this.addTrack} />
             <Playlist playlistName={this.state.playlistName} 
