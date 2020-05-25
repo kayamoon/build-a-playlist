@@ -26,14 +26,16 @@ const Spotify = {
     },
 
     async search(term){
+        const accessToken = Spotify.getAccessToken();
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {
-                Authorization: `Bearer ${config.SPOTIFY_API_KEY}`
+                Authorization: `Bearer ${accessToken}`
             }
         });
         const jsonResponse = await response.json();
         if (jsonResponse.tracks) {
-            return jsonResponse.tracks.map(track => {
+            console.log(jsonResponse);
+            return jsonResponse.tracks.items.map(track => {
                 return {
                     id: track.id,
                     name: track.name,
@@ -41,7 +43,7 @@ const Spotify = {
                     album: track.album.name,
                     uri: track.uri
                 };
-            });
+            }); 
         }
     }
 }
