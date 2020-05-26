@@ -52,7 +52,7 @@ class App extends React.Component {
     if(!trackURIs.length){
       return;
     }
-    
+
     Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
       this.setState({
         playlistName: 'New Playlist', //reset playlist name and tracks after playlist is saved to user's account
@@ -70,7 +70,7 @@ class App extends React.Component {
   render(){
     return (
       <div>
-        <h1>Ja<span className="highlight">mmm</span>ing</h1>
+        <h1>Build a Playlist</h1>
         <div className="App">
             <SearchBar onSearch={this.searchSpotify}/>
           <div className="App-playlist">
