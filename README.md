@@ -53,8 +53,8 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 ## Install
 
-    $ git clone https://github.com/kayamoon/jammming
-    $ cd jammming
+    $ git clone https://github.com/kayamoon/build-a-playlist
+    $ cd build-a-playlist
     $ npm install
 
 ### Configure app
