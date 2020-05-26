@@ -20,7 +20,7 @@ const Spotify = {
             window.history.pushState('Access Token', null, '/'); //clears paramters for the URL, so the app doesn't try getting the token expiration   
             return accessToken;
         } else {
-            const accessURL = `https://accounts.spotify.com/authorize?client_id=${config.SPOTIFY_API_KEY}&response_type=token&scope=playlist-modify-public&redirect_uri=${config.REDIRECT_URI}`;
+            const accessURL = `https://accounts.spotify.com/authorize?client_id=${config.SPOTIFY_CLIENT_ID}&response_type=token&scope=playlist-modify-public&redirect_uri=${config.REDIRECT_URI}`;
             window.location = accessURL; //redirects user to access url
         }
     },

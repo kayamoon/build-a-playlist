@@ -59,7 +59,7 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
 
 ### Configure app
 
-Copy `config.js.example` to `config.js` then edit it with your Spotify API key.
+Copy `config.js.example` to `config.js` then edit it with your Spotify Client ID.
 
 ## Start & watch
 

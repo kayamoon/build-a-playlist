@@ -1,6 +1,6 @@
 const config = {
-    SPOTIFY_API_KEY : '', //set variable equal to your Spotify API key
-    REDIRECT_URI : 'http://localhost:3000/'
+    SPOTIFY_CLIENT_ID : '', //set variable equal to your Spotify Client ID
+    REDIRECT_URI : 'http://localhost:3000/' //set to the same address as redirect URI on spotify developer dashboard
   }
 
 export default config;
