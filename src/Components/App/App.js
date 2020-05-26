@@ -11,41 +11,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-        searchResults: [
-        {
-          name: 'All I Do',
-          artist: 'Stevie Wonder',
-          album: 'Songs in the Key of Life',
-          id: 1
-        },
-        {
-          name: 'The Bird',
-          artist: 'Anderson Paak',
-          album: 'Malibu',
-          id: 2
-        },
-        {
-          name: 'Brooklyn',
-          artist: 'Mos Def',
-          album: 'Black on Both Sides',
-          id: 3
-        }
-      ],
-      playlistName: 'Summer 2015',
-      playlistTracks: [
-        {
-          name: 'Sweet Life',
-          artist: 'Frank Ocean',
-          album: 'Channel Orange',
-          id: 5
-        },
-        {
-          name: 'Cocoa Butter Kisses',
-          artist: 'Chance The Rapper',
-          album: 'Acid Rap',
-          id: 4
-        }
-      ]
+        searchResults: [],
+      playlistName: 'New Playlist',
+      playlistTracks: []
     };
 
     this.addTrack = this.addTrack.bind(this);
@@ -79,19 +47,19 @@ class App extends React.Component {
   }
   
   savePlaylist(){
-    let trackURIs = [];
-    let tracks = this.state.playlistTracks;
-    return tracks.map(track => {
-      return trackURIs.push(`spotify:track:${track.id}`);
-    })
-    //console.log(trackURIs);
-    //console.log(this.state.playlistName);
+    const trackURIs = this.state.playlistTracks.map(track => track.uri);
+    Spotify.savePlaylist(this.state.playlistName, trackURIs).then(() => {
+      this.setState({
+        playlistName: 'New Playlist', //reset playlist name and tracks after playlist is saved to user's account
+        playlistTracks: []
+      });
+    });
   }
 
   searchSpotify(term){
     if(term !== ''){
-        Spotify.search(term).then(tracks => {
-        this.setState({ searchResults: tracks });
+        Spotify.search(term).then(searchResults => {
+        this.setState({ searchResults: searchResults });
     })
     }
   }
